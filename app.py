@@ -4,7 +4,7 @@
 	Data Analysis on Task Accomplishments
 '''
 
-from flask import Flask, redirect, render_template
+from flask import Flask, redirect, url_for, render_template
 from flask_wtf import FlaskForm
 import sqlite3
 
