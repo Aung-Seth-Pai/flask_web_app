@@ -9,6 +9,9 @@
         <!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+		<!-- JQuery -->
+
+
 		<!-- Place your kit's code here -->
     	<script src="https://kit.fontawesome.com/9a0b970f5a.js"></script>
 
@@ -16,7 +19,7 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 
 
-		<nav class="navbar navbar-dark bg-dark navbar-expand-md" style="font-size: 15px;">
+		<nav class="navbar sticky-top navbar-dark bg-dark navbar-expand-md" style="font-size: 15px;">
 			<div class="container-fluid">
 
 				<!-- Logo -->
@@ -31,7 +34,7 @@
 	  			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				    <ul class="navbar-nav mr-auto">
 					    <li class="nav-item active">
-					    	<a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+					    	<a class="nav-link" href="{{ url_for('index') }}">Home<span class="sr-only">(current)</span></a>
 					    </li>
 					    <li class="nav-item">
         					<a class="nav-link" href="#">Link1</a>
@@ -50,12 +53,17 @@
 
 					<!-- Display when logged out -->
 					<ul class="ml-auto navbar-nav navbar-right">
-				    	<li class="nav-item"><a class="nav-link" href="#"><span class="">Sign Up</span></a></li>
-				    	<li class="nav-item"><a class="nav-link" href="#"><span class="">Login</span></a></li>
+				    	<li class="nav-item">
+				    		<a class="nav-link"  href="{{ url_for('register') }}"><span class="">Sign Up</span></a>
+				    	</li>
+				    	<li class="nav-item">
+				    		<a class="nav-link" href="#"><span class="">Login</span></a>
+				    	</li>
 				    </ul>
 				</div>
 			</div>
 		</nav>
+		<br>
 
         <!-- Dynamic Page Title -->
 		{% if title %}
