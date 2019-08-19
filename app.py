@@ -1,11 +1,11 @@
 '''
 	Webapp for creating flexible schedule
 	Google Calendar, Facebook Events, Gmail APIs
-	Data Analysis on Task Accomplishments
+	Data Visualization on Task Accomplishments
 '''
 
 from flask import Flask, redirect, url_for, render_template, request
-from form import RegisterForm
+from form import RegisterForm, LoginForm
 import sqlite3
 
 # create flask server
@@ -25,9 +25,15 @@ def index():
 def register():
 	form = RegisterForm()
 	if form.validate_on_submit():
-		return redirect(url_for('index'))
+		return redirect(url_for('index')) # register successful
 	return render_template("register.html", title="register", form=form)
 
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+	form = LoginForm()
+	if form.validate_on_submit():
+		return redirect(url_for('index')) # login successful
+	return render_template("login.html", title="login", form=form)
 
 # enable server setup with (python filename.py) without (flask run)
 if __name__ == '__main__':
