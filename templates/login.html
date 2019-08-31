@@ -12,7 +12,7 @@
 					{{ form.email.label(class="form-control-label") }}
 
 					{% if form.email.errors %}
-						{{ form.email(class="form-control form-control-lg is-invalid") }}
+						{{ form.email(class="form-control form-control-lg is-invalid", autofocus="True") }}
 						
 						<div class="invalid-feedback">
 							{% for error in form.email.errors %}
@@ -20,7 +20,7 @@
 							{% endfor %}
 						</div>
 					{% else %}
-						{{ form.email(class="form-control form-control-lg", placeholder="tony@example.com") }}
+						{{ form.email(class="form-control form-control-lg", placeholder="tony@example.com", autofocus="True") }}
 					{% endif %}
 				</div>
 
