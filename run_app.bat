@@ -1,8 +1,6 @@
-rem "set FLASK_APP=app.py if not using .py directly"
-set FLASK_DEBUG=True
-
-rem "start flask server"
-start "Flextime" python app.py
+rem "start virtual env and flextime server"
+rem "/k = keep screen on"
+start cmd.exe /k "color b && D:\Workspace\flextime\flextime\scripts\activate.bat && D: && cd/Workspace/flextime && python flextime.py"
 
 rem "go to C drive"
 C:

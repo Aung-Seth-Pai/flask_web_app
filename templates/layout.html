@@ -12,7 +12,7 @@
 		<!-- JQuery -->
 
 
-		<!-- Place your kit's code here -->
+		<!-- Font Awesome Icons -->
     	<script src="https://kit.fontawesome.com/9a0b970f5a.js"></script>
 
         <!-- My CSS -->
@@ -47,10 +47,13 @@
       					</li>
 				    </ul>
 
-			<!--{% if session.user_id %}-->
-			<!--{% else %}-->
-			<!--{% endif %}-->	
-
+				{% if session.user_id %}
+					<ul class="ml-auto navbar-nav navbar-right">
+						<li class="nav-item">
+							<a class="nav-link" href="{{ url_for('logout') }}"><span class="">Logout</span></a>
+						</li>
+					</ul>
+				{% else %}
 					<!-- Display when logged out -->
 					<ul class="ml-auto navbar-nav navbar-right">
 				    	<li class="nav-item">
@@ -60,6 +63,9 @@
 				    		<a class="nav-link" href="{{ url_for('login') }}"><span class="">Login</span></a>
 				    	</li>
 				    </ul>
+				{% endif %}
+
+					
 				</div>
 			</div>
 		</nav>
