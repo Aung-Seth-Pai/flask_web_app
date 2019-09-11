@@ -8,8 +8,7 @@
 import os
 from dotenv import load_dotenv
 
-
-from flask import Flask, redirect, url_for, render_template, request, session
+from flask import Flask, redirect, url_for, render_template, request, session, flash
 from form import RegisterForm, LoginForm
 import sqlite3
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -63,6 +62,7 @@ def register():
 		# database contains (id) PRIMARY KEY AUTOINCREMENT
 		# set session["user_id"] as saved id from database
 		# redirect to home
+		flash("Account successfully created!", "success")
 		return redirect(url_for('index')) # register successful
 	return render_template("register.html", title="register", form=form)
 
@@ -89,12 +89,11 @@ def login():
 						 'hashed_pwd': f'{hashed_pwd}'})
 
 			session['user_id'] = form.email.data
-			#flash('Logged in successfully', 'success')
+			flash('Logged in successfully', 'success')
 		#----End test----
 			return redirect(url_for('index'))
 		else: # if fail
-			#flash('403 Access Denied')
-			return ('<h1>Access Denied</h1>')
+			flash("Access Denied", "danger")
 	return render_template("login.html", title="login", form=form)
 
 @app.route("/logout")
