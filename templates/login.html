@@ -2,7 +2,8 @@
 
 {% block content %}
 	<div class="container-fluid content-section" style="padding: 2% 20% 2% 20%;">
-		<form method="POST" action="">
+		<!-- novalidate: leave validation to server, not browser based, to test if server side check is working correctly -->
+		<form method="POST" action="" novalidate> 
 			{{ form.hidden_tag() }} <!-- added for security along with secret key -->
 
 			<fieldset class="form-group">
