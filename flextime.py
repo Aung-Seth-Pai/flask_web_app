@@ -4,25 +4,17 @@
 	Data Visualization on Task Accomplishments
 '''
 
-# SECRET_KEY is stored locally in .env file
-import os
-from dotenv import load_dotenv
-
 from flask import Flask, redirect, url_for, render_template, request, session, flash
-from form import RegisterForm, LoginForm
 import sqlite3
 from werkzeug.security import generate_password_hash, check_password_hash
-from helper import login_required
 
-# for environment variables stored in .env file
-project_folder = os.path.expanduser('~/flextime')
-load_dotenv(os.path.join(project_folder, '.env'))
+from helper import login_required
+from config import Config
+from form import RegisterForm, LoginForm, ContentForm
 
 # create flask server
 app = Flask(__name__)
-app.config["SECRET_KEY"] = os.getenv("SECRET_KEY") or "beb60f2682543ad4cd3a33d507f315aa"
-app.config["TEMPLATES_AUTO_RELOAD"] = True
-
+app.config.from_object(Config)
 
 # Ensure responses aren't cached
 @app.after_request
@@ -46,11 +38,11 @@ def index():
 	# it will check if current session["user_id"] is none
 	# if none is true, login_required with redirect to /login
 	# if not none, allow access to route
-
+	form = ContentForm()
 	user = session["user_id"]
 	return render_template("index.html", title="Home", user = user,
 							password = userdata[0]['password'],
-							hashed_pwd = userdata[0]['hashed_pwd'])
+							hashed_pwd = userdata[0]['hashed_pwd'], form=form)
 
 # what happene when logged in user go to register route?
 @app.route("/register", methods=['GET', 'POST'])
