@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	<!--
+	<h1>Welcome {{ user }}</h1>
+	<h1>Your password is {{ password }}</h1>
+	<h1>Hashed password is {{ hashed_pwd }}</h1>
+	-->
+
+	<!-- to store user created content  -->
+	<div class="container" align="center" style="border-style: groove;">
+		<ul>
+			<li>
+				<h1>Something Interesting is Coming</h1>
+			</li>
+		</ul>
+	</div>
+
+
+	<div class="container-fluid content-section" style="padding: 2% 20% 2% 20%;">
+		<form method="POST" action="">
+			{{ form.hidden_tag() }} <!-- added for security along with secret key -->
+
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4">Create Content</legend>
+
+				<div class="form-group">
+					{{ form.deadline.label(class="form-control-label") }}
+
+					{% if form.deadline.errors %}
+						{{ form.deadline(class="form-control form-control-lg is-invalid", autofocus="True") }}
+						
+						<div class="invalid-feedback">
+							{% for error in form.deadline.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.deadline(class="form-control form-control-lg", placeholder="", autofocus="True") }}
+					{% endif %}
+				</div>
+			</fieldset>
+
+			<div class="form-group">
+				{{ form.submit(class="btn btn-outline-info") }}
+			</div>
+		</form>
+	</div>
+
+
+{% endblock content %}
