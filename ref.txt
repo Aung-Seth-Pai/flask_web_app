@@ -1,6 +1,0 @@
-Citations
-
-Full featured web-apps with flask (flaskblog)
-
-flask mega tutorial
-

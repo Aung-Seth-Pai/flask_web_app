@@ -1,6 +1,6 @@
 rem "start virtual env and web server"
 rem "/k = keep screen on"
-start cmd.exe /k "color b && D:\Workspace\flextime\flextime\scripts\activate.bat && D: && cd/Workspace/flextime && python spark.py"
+start cmd.exe /k "color b && D:\Workspace\flextime\spark\scripts\activate.bat && D: && cd/Workspace/flextime && python spark.py"
 
 rem "go to C drive"
 C:

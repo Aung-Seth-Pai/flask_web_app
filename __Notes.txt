@@ -1,0 +1,22 @@
+environment variables are set in .env file
+config uses these env vars
+
+used this script to automatically load environment variables whenever you run virtualenv
+>>> echo 'set -a; source ~/my-project-dir/.env; set +a' >> ~/.virtualenvs/my-project-virtualenv/bin/postactivate
+(the script is stored in postactive file inside proj-virenv-scripts folder)
+
+Refer to this tutorial for database migration
+https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database
+
+flask db init
+flask db migrate -m "message"
+flask db upgrade
+flask db downgrade
+
+To Add Migration Repo for database
+Migration Engine: Flask-Migrate > Alembic
+# add migration repository
+>>> flask db init
+
+Db migration > manual or auto
+>>> flask db migrate -m "commit message"

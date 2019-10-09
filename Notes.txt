@@ -1,5 +1,0 @@
-environment variables are set in .env file
-
-used this script to automatically load environment variables whenever you run virtualenv
->>> echo 'set -a; source ~/my-project-dir/.env; set +a' >> ~/.virtualenvs/my-project-virtualenv/bin/postactivate
-(the script is stored in postactive file inside proj-virenv-scripts folder)
